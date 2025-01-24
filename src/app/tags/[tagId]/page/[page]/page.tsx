@@ -8,25 +8,32 @@ import { notFound } from "next/navigation";
 type Props = {
   params: Promise<{
     tagId: string;
+    page: string;
   }>;
 };
 
-export default async function TagPage({ params }: Props) {
+export default async function TagPaginatedPage({ params }: Props) {
   const resolvedParams = await params;
+  const page = parseInt(resolvedParams.page, 10);
   const tagId = resolvedParams.tagId;
+
+  // ページ番号が不正な場合は404
+  if (isNaN(page) || page < 1) {
+    notFound();
+  }
 
   const data = await getBlogsList({
     limit: BLOG_LIST_LIMIT,
-    offset: 0,
+    offset: (page - 1) * BLOG_LIST_LIMIT,
     filters: `tags[contains]${tagId}`,
   });
 
-  const tags = await getAllTags();
-
-  // タグに紐付くコンテンツがない場合は404
+  // データが存在しない場合は404
   if (data.contents.length === 0) {
     notFound();
   }
+
+  const tags = await getAllTags();
 
   return (
     <main 
@@ -38,19 +45,12 @@ export default async function TagPage({ params }: Props) {
         <TitleContainer />
         <TagList tags={tags.contents} />
         <CardList 
-          data={data.contents}
+          data={data.contents} 
           totalCount={data.totalCount}
-          currentPage={1}
+          currentPage={page}
           perPage={BLOG_LIST_LIMIT}
         />
       </div>
     </main>
   );
-}
-
-export async function generateStaticParams() {
-  const tags = await getAllTags();
-  return tags.contents.map((tag) => ({
-    tagId: tag.id,
-  }));
-}
+} 
