@@ -1,5 +1,5 @@
 "use client";
-import type { Blog, MicroCMSListResponse } from "@/app/_libs/microcms";
+import type { Blog } from "@/app/_libs/microcms";
 import Date from "@/app/component/Date";
 import Link from "next/link";
 import Image from 'next/image';

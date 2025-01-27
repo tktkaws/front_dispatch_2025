@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogDetail, getBlogsList, getAllTags } from "@/app/_libs/microcms";
+import { getBlogDetail, getBlogsList } from "@/app/_libs/microcms";
 import Article from "@/app/component/Article";
 import Date from "@/app/component/Date";
 import CardList from "@/app/component/CardList";
@@ -7,13 +7,16 @@ import { TOP_NEWS_LIMIT } from "@/app/_constants";
 import Link from "next/link";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Page({ params }: Props) {
-  const slug = (await params)?.slug;
+export default async function Page({ 
+  params,
+}: Props) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   
   if (!slug) {
     notFound();
@@ -65,7 +68,7 @@ export default async function Page({ params }: Props) {
   );
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getBlogsList({ limit: 100 });
   
   return posts.contents.map((post) => ({
