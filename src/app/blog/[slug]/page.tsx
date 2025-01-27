@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogDetail, getBlogsList } from "@/app/_libs/microcms";
+import { getBlogDetail, getBlogsList, getAllTags } from "@/app/_libs/microcms";
 import Article from "@/app/component/Article";
 import Date from "@/app/component/Date";
 import CardList from "@/app/component/CardList";
@@ -23,6 +23,7 @@ export default async function Page({ params }: Props) {
   const listData = await getBlogsList({
     limit: TOP_NEWS_LIMIT,
   });
+
   return (
     <>
       <main className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr]">
