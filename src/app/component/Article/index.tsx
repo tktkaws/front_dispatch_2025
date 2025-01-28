@@ -16,7 +16,7 @@ export default async function Article({ data }: Props) {
       </div>
       <div className="col-start-1 mt-12">
         <div
-          className="markdown-body [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16"
+          className="markdown-body [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 dark:text-white dark:bg-[#121212]"
           dangerouslySetInnerHTML={{
             __html: data.body,
           }}

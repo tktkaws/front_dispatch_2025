@@ -48,7 +48,7 @@ export default function CardList({ data, totalCount, currentPage, perPage }: Pro
                 {blog.tags.slice(0, 2).map((tag, idx) => (
                   <p 
                     key={idx} 
-                    className="whitespace-nowrap rounded-[0.95em] border border-[#CCCCCC] px-3 md:px-4 py-[0.2em] text-[0.8rem] text-[#555555]"
+                    className="whitespace-nowrap rounded-[0.95em] border border-[#CCCCCC] px-3 md:px-4 py-[0.2em] text-[0.8rem] text-[#555555] dark:text-white"
                   >
                     {tag.title}
                   </p>
@@ -71,7 +71,7 @@ export default function CardList({ data, totalCount, currentPage, perPage }: Pro
           {currentPage > 1 && (
             <Link
               href={getPageUrl(currentPage - 1)}
-              className="px-4 py-2 border rounded hover:bg-gray-100"
+              className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black"
             >
               前のページ
             </Link>
@@ -82,7 +82,7 @@ export default function CardList({ data, totalCount, currentPage, perPage }: Pro
           {currentPage < maxPage && (
             <Link
               href={getPageUrl(currentPage + 1)}
-              className="px-4 py-2 border rounded hover:bg-gray-100"
+              className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black"
             >
               次のページ
             </Link>

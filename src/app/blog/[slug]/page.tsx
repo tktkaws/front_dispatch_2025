@@ -46,7 +46,7 @@ export default async function Page({
                   <Link
                     key={idx}
                     href={`/tags/${tag.id}`}
-                    className="text-sm text-[#555555] px-4 py-0.5 border border-[#CCCCCC] rounded-2xl hover:outline hover:outline-1 hover:outline-current hover:border-white"
+                    className="text-sm text-[#555555] dark:bg-black dark:text-white px-4 py-0.5 border border-[#CCCCCC] rounded-2xl hover:outline hover:outline-1 hover:outline-current hover:border-white"
                   >
                     {tag.title}
                   </Link>

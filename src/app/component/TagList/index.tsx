@@ -19,8 +19,10 @@ export default function TagList({ tags }: TagListProps) {
       <li>
         <Link
           href="/"
-          className={`text-gray-600 px-4 py-1 border border-gray-300 rounded-full text-sm hover:outline hover:outline-[0.125rem] hover:outline-current hover:border-white ${
-            currentPath === "/" ? "bg-black text-white border-black" : ""
+          className={`px-4 py-1 border border-gray-300 rounded-full text-sm hover:outline hover:outline-[0.125rem] hover:outline-current hover:border-white ${
+            currentPath === "/" 
+              ? "bg-black dark:bg-white text-white dark:text-black border-black dark:border-white" 
+              : "text-gray-600 dark:bg-black dark:text-white"
           }`}
         >
           ALL
@@ -30,8 +32,10 @@ export default function TagList({ tags }: TagListProps) {
         <li key={tag.id}>
           <Link
             href={`/tags/${tag.id}`}
-            className={`text-gray-600 px-4 py-1 border border-gray-300 rounded-full text-sm hover:outline hover:outline-[0.125rem] hover:outline-current hover:border-white ${
-              currentPath === `/tags/${tag.id}` ? "bg-black text-white border-black" : ""
+            className={`px-4 py-1 border border-gray-300 rounded-full text-sm hover:outline hover:outline-[0.125rem] hover:outline-current hover:border-white ${
+              currentPath === `/tags/${tag.id}` 
+                ? "bg-black dark:bg-white text-white dark:text-black border-black dark:border-white" 
+                : "text-gray-600 dark:bg-black dark:text-white"
             }`}
           >
             {tag.title}

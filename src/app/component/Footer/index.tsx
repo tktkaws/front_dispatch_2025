@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-8 z-50 lg:hidden">
             <button
                 onClick={() => window.location.href = '/'}
-                className="bg-black p-2 rounded-full shadow-lg shadow-black/25"
+                className="bg-black dark:bg-slate-800 p-2 rounded-full shadow-lg shadow-black/25"
                 aria-label="トップページへ移動"
               >
                 <Image
@@ -39,7 +39,7 @@ export default function Footer() {
               </button>
             <button
               onClick={scrollToTop}
-              className="bg-black p-2 rounded-full shadow-lg shadow-black/25"
+              className="bg-black dark:bg-slate-800 p-2 rounded-full shadow-lg shadow-black/25"
               aria-label="ページトップへ戻る"
             >
               <Image 
