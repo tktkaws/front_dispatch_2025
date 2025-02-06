@@ -10,16 +10,23 @@ const schema = z.object({
   message: z.string().min(10, '10文字以上で入力してください')
 })
 
+// フォームデータの型を定義
+type ContactFormData = {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function ContactForm() {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting }
-  } = useForm({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(schema)
   })
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ContactFormData) => {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
