@@ -48,8 +48,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-1/2">
+      <h2 className="text-2xl font-semibold mt-8 mb-4 pb-3">お問い合わせ</h2>
       <div>
+        <label htmlFor="name" className="block mb-2">お名前</label>
         <input
           {...register('name')}
           placeholder="お名前"
@@ -59,6 +61,7 @@ export default function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="email" className="block mb-2">メールアドレス</label>
         <input
           {...register('email')}
           placeholder="メールアドレス"
@@ -68,6 +71,7 @@ export default function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="message" className="block mb-2">お問い合わせ内容</label>
         <textarea
           {...register('message')}
           placeholder="お問い合わせ内容"
@@ -79,9 +83,8 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
-      >
-        {isSubmitting ? '送信中...' : '送信する'}
+        className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black">
+        {isSubmitting ? '送信中...' : '送信'}
       </button>
     </form>
   )
