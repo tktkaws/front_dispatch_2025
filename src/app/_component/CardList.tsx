@@ -1,6 +1,6 @@
 "use client";
 import type { Blog } from "@/app/_libs/microcms";
-import Date from "@/app/component/Date";
+import Date from "@/app/_component/Date";
 import Link from "next/link";
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -30,44 +30,39 @@ export default function CardList({ data, totalCount, currentPage, perPage }: Pro
   };
 
   return (
-    <div className="mt-8 w-full">
-      <ul className="grid w-full grid-cols-1 lg:grid-cols-2 justify-center gap-8">
+    <div className="">
+    {/* <div className="w-full bg-white dark:bg-[#292D30] rounded-md p-0 md:p-4 mt-8 mb-8"> */}
+      <ul className="grid w-full grid-cols-1 justify-center">
         {data.map((blog) => (
           <li key={blog.id}>
+
             <Link 
               href={`/blog/${blog.id}`} 
-              className="grid h-auto w-full grid-cols-[auto_auto_1fr] grid-rows-[100px_auto] items-center gap-x-[4%] md:gap-x-8 rounded-md border border-[#CCCCCC] p-[4%] md:p-4  text-[1.0625rem] hover:outline hover:outline-1 hover:outline-current"
+              className="grid h-auto w-full grid-rows-[auto_1fr] lg:grid-rows-[100%] grid-cols-[auto_1fr] lg:grid-cols-[70%_8%_18%] gap-x-[2%] gap-y-2 items-center border-[#CCCCCC] p-6 px-0 md:p-4 md:pl-0 md:pr-0 border-b border-dotted hover:text-gray-300"
             >
-              <p className="col-span-full row-start-1 self-start justify-self-start font-bold">
+              <p className="col-span-full lg:col-span-1 row-start-1 self-start justify-self-start">
                 {blog.title}
               </p>
-              <p className="row-start-2 col-start-1">
-                <Date date={blog.publishedAt ?? blog.createdAt} />
+              <p className="row-start-2 lg:row-start-1 col-start-1 lg:col-start-2">
+                <Date date={blog.publishedAt ?? blog.createdAt} displayType="year" />
               </p>
-              <div className="row-start-2 col-start-2 flex gap-x-[4%] md:gap-x-4 justify-end md:justify-start">
-                {blog.tags.slice(0, 2).map((tag, idx) => (
+              <div className="row-start-2 lg:row-start-1 col-start-2 lg:col-start-3 flex gap-x-[4%] md:gap-x-4 justify-end md:justify-end">
+                {blog.tags.slice(0, 1).map((tag, idx) => (
                   <p 
                     key={idx} 
-                    className="whitespace-nowrap rounded-[0.95em] border border-[#CCCCCC] px-3 md:px-4 py-[0.2em] text-[0.8rem] text-[#555555] dark:text-white"
+                    className="rounded-[0.95em] border border-[#CCCCCC] px-3 md:px-4 py-[0.2em] text-[0.8rem] text-[#555555] dark:text-white"
                   >
                     {tag.title}
                   </p>
                 ))}
               </div>
-              <Image
-                src="/Arrow1.svg"
-                alt=""
-                width={13}
-                height={13}
-                className="row-start-2 col-start-3 justify-self-end"
-              />
             </Link>
           </li>
         ))}
       </ul>
 
       {showPagination && (
-        <div className="mt-12 flex justify-center gap-4">
+        <div className="mt-8 flex justify-center gap-4">
           {currentPage > 1 && (
             <Link
               href={getPageUrl(currentPage - 1)}
