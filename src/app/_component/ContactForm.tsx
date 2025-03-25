@@ -7,7 +7,7 @@ import * as z from 'zod'
 const schema = z.object({
   name: z.string().min(1, '必須項目です'),
   email: z.string().email('有効なメールアドレスを入力してください'),
-  message: z.string().min(10, '10文字以上で入力してください')
+  message: z.string().min(1, '必須項目です')
 })
 
 // フォームデータの型を定義
@@ -48,10 +48,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-1/2">
-      <h2 className="text-2xl font-semibold mt-8 mb-4 pb-3">お問い合わせ</h2>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 w-full">
       <div>
-        <label htmlFor="name" className="block mb-2">お名前</label>
+        <label htmlFor="name" className="block my-2">お名前
+          <span className="text-red-500 text-sm ml-2">*必須</span>
+        </label>
         <input
           {...register('name')}
           placeholder="お名前"
@@ -61,7 +62,9 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block mb-2">メールアドレス</label>
+        <label htmlFor="email" className="block my-2">メールアドレス
+          <span className="text-red-500 text-sm ml-2">*必須</span>
+        </label>
         <input
           {...register('email')}
           placeholder="メールアドレス"
@@ -71,7 +74,9 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block mb-2">お問い合わせ内容</label>
+        <label htmlFor="message" className="block my-2">お問い合わせ内容
+          <span className="text-red-500 text-sm ml-2">*必須</span>
+        </label>
         <textarea
           {...register('message')}
           placeholder="お問い合わせ内容"
@@ -83,7 +88,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black">
+        className="my-2 px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black">
         {isSubmitting ? '送信中...' : '送信'}
       </button>
     </form>
