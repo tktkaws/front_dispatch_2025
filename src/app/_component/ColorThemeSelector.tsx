@@ -34,7 +34,7 @@ const ColorThemeSelector = () => {
   }
 
   return (
-    <div className="theme-selector relative row-[1] col-[2] justify-self-end">
+    <div className="theme-selector relative row-[1] col-[2] justify-self-end z-50">
         
       <button
         aria-label="カラーテーマを選択する"
@@ -55,7 +55,7 @@ const ColorThemeSelector = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 overflow-hidden rounded border shadow-sm dark:border-gray-500">
+        <div className="absolute right-0 mt-2 w-40 overflow-hidden border shadow-sm dark:border-gray-500 bg-white dark:bg-black rounded-md">
           <div className="flex flex-col">
             {themes.map((item) => (
               <button
