@@ -1,8 +1,10 @@
-import { getBlogsList, getAllTags } from "@/app/_libs/microcms";
-import CardList from "@/app/component/CardList";
+import { getBlogsList, getTagsWithCount } from "@/app/_libs/microcms";
+import CardList from "@/app/_component/CardList";
 import { BLOG_LIST_LIMIT } from "@/app/_constants";
-import TitleContainer from "@/app/component/TitleContainer";
-import TagList from "@/app/component/TagList";
+// import TitleContainer from "@/app/component/TitleContainer";
+// import TagList from "@/app/component/TagList";
+import TagListHorizontal from "@/app/_component/TagListVertical";
+import TitleContainerHorizontal from "@/app/_component/TitleContainerVertical";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -30,17 +32,20 @@ export default async function PaginatedPage({ params }: Props) {
     notFound();
   }
 
-  const tags = await getAllTags();
+  const tags = await getTagsWithCount();
 
   return (
     <main 
-      id="main-content" 
-      tabIndex={-1} 
-      className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr]"
-    >
-      <div className="col-[2]">
-        <TitleContainer />
-        <TagList tags={tags.contents} />
+    id="main-content" 
+    tabIndex={-1} 
+    className="pt-12 pb-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]"
+  >
+    <div className="col-[2]">
+    <div className="grid grid-cols-1 lg:grid-cols-[46%_46%] gap-x-[8%] p-[4%] md:p-8">
+      <TitleContainerHorizontal />
+      <TagListHorizontal tags={tags.contents} />
+      </div>
+      <div className="bg-white dark:bg-[#292D30] rounded-md p-[4%] md:p-4 lg:p-8 mt-8">
         <CardList 
           data={data.contents} 
           totalCount={data.totalCount}
@@ -48,6 +53,7 @@ export default async function PaginatedPage({ params }: Props) {
           perPage={BLOG_LIST_LIMIT}
         />
       </div>
-    </main>
+    </div>
+  </main>
   );
 } 
