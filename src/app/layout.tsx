@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/app/component/Footer";
-import Header from "@/app/component/Header";
+import Footer from "@/app/_component/Footer";
+import Header from "@/app/_component/Header";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
