@@ -2,7 +2,6 @@
 import type { Blog } from "@/app/_libs/microcms";
 import Date from "@/app/_component/Date";
 import Link from "next/link";
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 type Props = {

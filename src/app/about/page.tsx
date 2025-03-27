@@ -1,6 +1,5 @@
 import ContactForm from "@/app/_component/ContactForm";
-import TitleContainer from "@/app/_component/TitleContainerVertical";
-import TitleContainerVertical from "@/app/_component/TitleContainerVertical";
+
 export default function About() {
   return (
     <main className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]">
