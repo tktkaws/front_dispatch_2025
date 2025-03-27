@@ -47,7 +47,10 @@ export const getBlogsList = async (queries?: MicroCMSQueries) => {
       cache: "default",
     },
     endpoint: "blogs",
-    queries,
+    queries: {
+      ...queries,
+      orders: '-publishedAt'
+    },
   });
   return listData;
 };
@@ -74,4 +77,25 @@ export const getAllTags = async () => {
   });
 
   return listData;
+};
+
+export const getTagsWithCount = async () => {
+  const tags = await getAllTags();
+  const blogs = await getBlogsList({ limit: 100 });
+
+  const tagsWithCount = tags.contents.map(tag => {
+    const count = blogs.contents.filter(blog => 
+      blog.tags.some(blogTag => blogTag.id === tag.id)
+    ).length;
+    
+    return {
+      ...tag,
+      totalCount: count
+    };
+  });
+
+  return {
+    ...tags,
+    contents: tagsWithCount
+  };
 };
