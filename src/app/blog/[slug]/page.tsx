@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { getBlogDetail, getBlogsList } from "@/app/_libs/microcms";
-import Article from "@/app/component/Article";
-import Date from "@/app/component/Date";
-import CardList from "@/app/component/CardList";
+import Article from "@/app/_component/Article";
+import Date from "@/app/_component/Date";
+import CardList from "@/app/_component/CardList";
 import { TOP_NEWS_LIMIT } from "@/app/_constants";
 import Link from "next/link";
 
@@ -29,11 +29,11 @@ export default async function Page({
 
   return (
     <>
-      <main className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr]">
-        <div className="w-full h-full col-span-full border-b border-[#CCCCCC] grid grid-cols-subgrid">
-          <div className="col-[2] grid grid-rows-[80%_20%] grid-cols-[auto_1fr] place-items-center justify-start gap-x-8">
-            <div className="w-full row-start-1 col-span-full grid place-items-center justify-start py-20">
-              <p className="w-full font-extrabold lg:text-5xl md:text-4xl text-3xl">
+      <main className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]">
+        <div className="w-full h-full col-span-full grid grid-cols-subgrid">
+          <div className="px-8 col-[2] grid grid-rows-[80%_20%] grid-cols-[auto_1fr] place-items-center justify-start gap-x-8">
+            <div className="w-full row-start-1 col-span-full grid place-items-center justify-start  py-8 md:py-12 lg:py-16">
+              <p className="w-full font-extrabold lg:text-4xl lg:leading-normal md:text-3xl md:leading-normal text-xl leading-normal">
                 {data.title}
               </p>
             </div>
@@ -58,10 +58,12 @@ export default async function Page({
           <Article data={data} />
         </div>
       </main>
-      <aside className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr]">
+      <aside className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]">
         <div className="col-[2]">
-          <h2 className="mt-24 text-2xl font-bold">最新記事</h2>
-          <CardList data={listData.contents} />
+          <div className="bg-white dark:bg-[#292D30] rounded-md p-[4%] md:p-4 lg:p-8 mb-8">
+            <h2 className="text-2xl font-bold mb-4">最新記事</h2>
+            <CardList data={listData.contents} />
+          </div>
         </div>
       </aside>
     </>
