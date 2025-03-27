@@ -9,11 +9,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --link-color: #0066cc;
+  --code-background: #f6f8fa;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --link-color: #ededed;
+  --code-background: #202024;
 }
+
+.markdown-body pre {
+  color: var(--foreground) !important;
+  background-color: var(--code-background) !important;
+}
+
+.markdown-body a {
+  color: var(--link-color) !important;
+}
+
+.markdown-body h2 {
+  margin-top: 2em !important;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 2em !important;
+}
+
