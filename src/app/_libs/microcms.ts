@@ -4,6 +4,7 @@ import type {
   MicroCMSListContent,
   MicroCMSListResponse,
 } from "microcms-js-sdk";
+import { sanitizeHtml } from './sanitize-html';
 
 export type { MicroCMSListResponse };
 
@@ -55,21 +56,17 @@ export const getBlogsList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
-export const getBlogDetail = async (
-  contentId: string,
-  queries?: MicroCMSQueries
-) => {
-  const detailData = await client.getListDetail<Blog>({
-    customRequestInit: {
-      cache: "default",
-    },
-    endpoint: "blogs",
-    contentId,
-    queries,
+export async function getBlogDetail(slug: string): Promise<Blog> {
+  const data = await client.get({
+    endpoint: 'blogs',
+    contentId: slug,
   });
 
-  return detailData;
-};
+  return {
+    ...data,
+    body: sanitizeHtml(data.body),
+  };
+}
 
 export const getAllTags = async () => {
   const listData = await client.getList<Tag>({
