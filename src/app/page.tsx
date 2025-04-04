@@ -3,6 +3,16 @@ import CardList from "@/app/_component/CardList";
 import { BLOG_LIST_LIMIT } from "@/app/_constants";
 import TagListVertical from "@/app/_component/TagListVertical";
 import TitleContainerVertical from "@/app/_component/TitleContainerVertical";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Front Dispatch",
+  description: "アクセシビリティ、モダンフロントエンド関係を中心とした技術ブログです。自身の知識を整理することが目的です。",
+  openGraph: {
+    title: "Front Dispatch",
+    description: "アクセシビリティ、モダンフロントエンド関係を中心とした技術ブログです。自身の知識を整理することが目的です。",
+  },
+};
 
 export default async function Home() {
   const data = await getBlogsList({

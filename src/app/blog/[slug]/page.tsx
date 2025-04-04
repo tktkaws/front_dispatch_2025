@@ -5,12 +5,34 @@ import Date from "@/app/_component/Date";
 import CardList from "@/app/_component/CardList";
 import { TOP_NEWS_LIMIT } from "@/app/_constants";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
+  const data = await getBlogDetail(slug).catch(notFound);
+
+  // HTMLタグを削除し、テキストのみを抽出
+  const plainText = data.body.replace(/<[^>]*>/g, "").trim();
+  const description = plainText.slice(0, 80) + "...";
+
+  return {
+    title: `${data.title} | Front Dispatch`,
+    description,
+    openGraph: {
+      title: data.title,
+      description,
+      type: "article",
+      publishedTime: data.publishedAt ?? data.createdAt,
+    },
+  };
+}
 
 export default async function Page({ 
   params,

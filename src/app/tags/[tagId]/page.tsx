@@ -6,12 +6,36 @@ import { BLOG_LIST_LIMIT } from "@/app/_constants";
 import TagListHorizontal from "@/app/_component/TagListVertical";
 import TitleContainerHorizontal from "@/app/_component/TitleContainerVertical";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{
     tagId: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const tagId = resolvedParams.tagId;
+  const tags = await getAllTags();
+  const tag = tags.contents.find(t => t.id === tagId);
+
+  if (!tag) {
+    return {
+      title: "タグが見つかりません | Front Dispatch",
+      description: "指定されたタグが見つかりませんでした。",
+    };
+  }
+
+  return {
+    title: `${tag.title} の記事一覧 | Front Dispatch`,
+    description: `${tag.title} に関する記事の一覧です。`,
+    openGraph: {
+      title: `${tag.title} の記事一覧`,
+      description: `${tag.title} に関する記事の一覧です。`,
+    },
+  };
+}
 
 export default async function TagPage({ params }: Props) {
   const resolvedParams = await params;

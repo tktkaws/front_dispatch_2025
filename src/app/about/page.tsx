@@ -1,4 +1,14 @@
 import ContactForm from "@/app/_component/ContactForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Front Dispatch",
+  description: "Front Dispatchの運営者についての情報ページです。",
+  openGraph: {
+    title: "About | Front Dispatch",
+    description: "Front Dispatchの運営者についての情報ページです。",
+  },
+};
 
 export default function About() {
   return (
