@@ -60,7 +60,7 @@ export default function CardList({ data, totalCount, currentPage, perPage }: Pro
         ))}
       </ul>
 
-      {showPagination && (
+      {showPagination && maxPage > 1 && (
         <div className="mt-8 flex justify-center gap-4">
           {currentPage > 1 && (
             <Link
