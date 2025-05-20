@@ -32,8 +32,10 @@
 .markdown-body h2 {
   margin-top: 2em !important;
 }
-
-.markdown-body>*:first-child {
-  margin-top: 2em !important;
+.markdown-body h2:first-child {
+  margin-top: 0 !important;
+}
+.markdown-body ul {
+  list-style-type: disc;
 }
 
