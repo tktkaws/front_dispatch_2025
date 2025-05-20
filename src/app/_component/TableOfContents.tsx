@@ -12,9 +12,9 @@ export default function TableOfContents({ toc }: Props) {
           <li key={item.id}>
             <a 
               href={`#${item.id}`} 
-              className={`flex items-center ${item.level === 3 ? 'ml-4' : ''}`}
+              className={`flex items-start ${item.level === 3 ? 'ml-4' : ''}`}
             >
-              <span className="mr-2 text-gray-200 scale-75">●</span>
+              <span className="mr-2 text-gray-200 scale-75 mt-1">●</span>
               {item.text}
             </a>
           </li>
