@@ -41,7 +41,7 @@ export default async function PaginatedPage({ params }: Props) {
     className="pt-12 pb-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]"
   >
     <div className="col-[2]">
-    <div className="grid grid-cols-1 lg:grid-cols-[46%_46%] gap-x-[8%] p-[4%] md:p-8">
+    <div className="grid grid-cols-1 lg:grid-cols-[46%_46%] gap-x-[8%] p-[2%] md:p-[2%]">
       <TitleContainerHorizontal />
       <TagListHorizontal tags={tags.contents} />
       </div>
