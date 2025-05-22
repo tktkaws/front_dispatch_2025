@@ -14,7 +14,7 @@ export default function TableOfContents({ toc }: Props) {
               href={`#${item.id}`} 
               className={`flex items-start ${item.level === 3 ? 'ml-4' : ''}`}
             >
-              <span className="mr-2 text-gray-200 scale-75 mt-1">●</span>
+              <span className="mr-2 text-gray-200 scale-75 mt-[0.1em]">●</span>
               {item.text}
             </a>
           </li>
