@@ -3,7 +3,7 @@ import { getBlogDetail, getBlogsList } from "@/app/_libs/microcms";
 import Article from "@/app/_component/Article";
 import Date from "@/app/_component/Date";
 import CardList from "@/app/_component/CardList";
-import { TOP_NEWS_LIMIT } from "@/app/_constants";
+import { BLOG_LIST_LIMIT } from "@/app/_constants";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -46,14 +46,14 @@ export default async function Page({
 
   const data = await getBlogDetail(slug).catch(notFound);
   const listData = await getBlogsList({
-    limit: TOP_NEWS_LIMIT,
+    limit: BLOG_LIST_LIMIT,
   });
 
   return (
     <>
       <main className="pt-12 grid grid-cols-[4%_92%_4%] xl:grid-cols-[1fr_1200px_1fr] bg-[#F5F4F0] dark:bg-[#202024]">
         <div className="w-full h-full col-span-full grid grid-cols-subgrid">
-          <div className="px-8 col-[2] grid grid-rows-[80%_20%] grid-cols-[auto_1fr] place-items-center justify-start gap-x-8">
+          <div className="px-[2%] col-[2] grid grid-rows-[80%_20%] grid-cols-[auto_1fr] place-items-center justify-start gap-x-8">
             <div className="w-full row-start-1 col-span-full grid place-items-center justify-start  py-8 md:py-12 lg:py-16">
               <p className="w-full font-extrabold lg:text-4xl lg:leading-normal md:text-3xl md:leading-normal text-xl leading-normal">
                 {data.title}
