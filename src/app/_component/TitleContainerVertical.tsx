@@ -8,10 +8,10 @@ export default function TitleContainer() {
           </p>
         </div>
         <div className="pt-8 pb-8 md:pt-0 md:pb-0 w-full text-base">
-          <p>
+          {/* <p>
             アクセシビリティ、フロントエンドに関する技術が中心のブログです。
           </p>
-          <p>自身の知識を整理することが目的です。</p>
+          <p>自身の知識を整理することが目的です。</p> */}
         </div>
       </div>
     );
