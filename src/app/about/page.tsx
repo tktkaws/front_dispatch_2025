@@ -54,7 +54,7 @@ export default function About() {
             </div>
           </div>
           <div className="col-start-1 my-12">
-            <div className="p-4 lg:p-8 py-8 lg:py-16 lg:pt-4 rounded-md [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 bg-white dark:text-white dark:bg-[#292D30]">
+            <div className="p-4 lg:p-8 py-8 lg:py-16 rounded-md [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 bg-white dark:text-white dark:bg-[#292D30]">
               <section>
                 <h2
                   id="001"
@@ -176,7 +176,9 @@ export default function About() {
                 <p className="mt-4">
                   既存のコーポレートサイトのIRサイトのみのリニューアル。
                 </p>
-                <h3 className="mt-6 mb-3 font-bold">ディスクロージャー支援サービスの設置作業</h3>
+                <h3 className="mt-6 mb-3 font-bold">
+                  ディスクロージャー支援サービスの設置作業
+                </h3>
                 <dl className="mb-4 space-y-2">
                   <div className="flex">
                     <dt className="min-w-[80px]">ページ数</dt>
@@ -197,37 +199,41 @@ export default function About() {
                   CMSが出力するXMLをパースし、既存のサイトのレイアウトに沿った構造で表示する
                 </p>
               </section>
-              <section>
-                <h2
-                  id="004"
-                  className="text-2xl font-semibold mt-8 mb-8 border-b pb-3"
-                >
-                  お問い合わせ
-                </h2>
-                <p className="text-base leading-relaxed mb-4">
-                  お問い合わせは下記のフォーム、
-                  <a
-                    href="https://x.com/takaws"
-                    className="text-blue-500 hover:text-blue-700"
-                    target="_blank"
-                  >
-                    X
-                  </a>
-                  、
-                  <a
-                    href="mailto:takaws@gmail.com"
-                    className="text-blue-500 hover:text-blue-700"
-                    target="_blank"
-                  >
-                    メール
-                  </a>
-                  からお願いします。
-                </p>
-                <ContactForm />
-              </section>
             </div>
           </div>
         </article>
+        <aside className="grid lg:grid-cols-[76%_20%] lg:gap-x-[4%] grid-cols-1 mb-12">
+          <section className="col-start-1">
+            <div className="p-4 lg:p-8 py-8 lg:py-16 lg:pt-4 rounded-md [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 bg-white dark:text-white dark:bg-[#292D30]">
+              <h2
+                id="004"
+                className="text-2xl font-semibold mt-8 mb-8 border-b pb-3"
+              >
+                お問い合わせ
+              </h2>
+              <p className="text-base leading-relaxed mb-4">
+                お問い合わせは下記のフォーム、
+                <a
+                  href="https://x.com/takaws"
+                  className="text-blue-500 hover:text-blue-700"
+                  target="_blank"
+                >
+                  X
+                </a>
+                、
+                <a
+                  href="mailto:takaws@gmail.com"
+                  className="text-blue-500 hover:text-blue-700"
+                  target="_blank"
+                >
+                  メール
+                </a>
+                からお願いします。
+              </p>
+              <ContactForm />
+            </div>
+          </section>
+        </aside>
       </div>
     </main>
   );
