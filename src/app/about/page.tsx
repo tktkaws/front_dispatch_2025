@@ -33,11 +33,11 @@ export default function About() {
                     <span className="mr-2 text-gray-200 scale-75">●</span>略歴
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#002" className="flex items-center">
                     <span className="mr-2 text-gray-200 scale-75">●</span>経歴
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#003" className="flex items-center">
                     <span className="mr-2 text-gray-200 scale-75">●</span>
@@ -65,7 +65,9 @@ export default function About() {
                 <p className="text-base leading-relaxed mb-4">
                   2024年1月から都内Web制作会社でコーダーとして勤務
                   <br />
-                  アクセシビリティとモダンフロントエンド技術によるサイト制作に強い関心がある
+                  Webアクセシビリティとモダンフロントエンド技術によるサイト制作に強い関心がある
+                  <br />
+                  <a href="/blog/ch91jpvx2" className="underline hover:no-underline">2025年5月にDHS Trusted Tester Certificationを取得</a>
                   <br />
                   東京都墨田区在住
                   <br />
@@ -76,7 +78,7 @@ export default function About() {
                   ラジオ お笑い HIPHOP カレー ビールを好んでいる
                 </p>
               </section>
-              <section>
+              {/* <section>
                 <h2
                   id="002"
                   className="text-2xl font-semibold mt-8 mb-4 border-b pb-3"
@@ -123,7 +125,7 @@ export default function About() {
                   <br />
                   半年間Web制作方面の独学をした後、都内のWeb制作会社にコーダーとして転職
                 </p>
-              </section>
+              </section> */}
               <section>
                 <h2
                   id="003"
@@ -154,8 +156,8 @@ export default function About() {
                   ハック的なマークアップが多く、アクセシビリティの改善が必要な箇所が多々あった。
                 </p>
                 <p className="mt-4">
-                  <a href="" className="text-blue-500 hover:text-blue-700">
-                    ブログ記事のリンク
+                  <a href="/blog/9pwypbz38vuk" className="underline hover:no-underline">
+                  業務歴半年のコーダーがアクセシビリティ案件にアサインされた話
                   </a>
                 </p>
                 <h3 className="mt-6 mb-3 font-bold">IRサイトリニューアル</h3>
@@ -176,7 +178,7 @@ export default function About() {
                 <p className="mt-4">
                   既存のコーポレートサイトのIRサイトのみのリニューアル。
                 </p>
-                <h3 className="mt-6 mb-3 font-bold">
+                {/* <h3 className="mt-6 mb-3 font-bold">
                   ディスクロージャー支援サービスの設置作業
                 </h3>
                 <dl className="mb-4 space-y-2">
@@ -197,7 +199,7 @@ export default function About() {
                   適時開示情報を管理するCMSから出力する情報を既存サイトに設置する
                   <br />
                   CMSが出力するXMLをパースし、既存のサイトのレイアウトに沿った構造で表示する
-                </p>
+                </p> */}
               </section>
             </div>
           </div>
@@ -215,7 +217,7 @@ export default function About() {
                 お問い合わせは下記のフォーム、
                 <a
                   href="https://x.com/takaws"
-                  className="text-blue-500 hover:text-blue-700"
+                  className="underline hover:no-underline"
                   target="_blank"
                 >
                   X
@@ -223,7 +225,7 @@ export default function About() {
                 、
                 <a
                   href="mailto:takaws@gmail.com"
-                  className="text-blue-500 hover:text-blue-700"
+                  className="underline hover:no-underline"
                   target="_blank"
                 >
                   メール
