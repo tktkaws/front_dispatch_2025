@@ -1,5 +1,6 @@
 import ContactForm from "@/app/_component/ContactForm";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About | Front Dispatch",
@@ -67,7 +68,7 @@ export default function About() {
                   <br />
                   Webアクセシビリティとモダンフロントエンド技術によるサイト制作に強い関心がある
                   <br />
-                  <a href="/blog/ch91jpvx2" className="underline hover:no-underline">2025年5月にDHS Trusted Tester Certificationを取得</a>
+                  <Link href="/blog/ch91jpvx2" className="underline hover:no-underline">2025年5月にDHS Trusted Tester Certificationを取得</Link>
                   <br />
                   東京都墨田区在住
                   <br />
@@ -156,9 +157,9 @@ export default function About() {
                   ハック的なマークアップが多く、アクセシビリティの改善が必要な箇所が多々あった。
                 </p>
                 <p className="mt-4">
-                  <a href="/blog/9pwypbz38vuk" className="underline hover:no-underline">
+                  <Link href="/blog/9pwypbz38vuk" className="underline hover:no-underline">
                   業務歴半年のコーダーがアクセシビリティ案件にアサインされた話
-                  </a>
+                  </Link>
                 </p>
                 <h3 className="mt-6 mb-3 font-bold">IRサイトリニューアル</h3>
                 <dl className="mb-4 space-y-2">
@@ -215,21 +216,21 @@ export default function About() {
               </h2>
               <p className="text-base leading-relaxed mb-4">
                 お問い合わせは下記のフォーム、
-                <a
+                <Link
                   href="https://x.com/takaws"
                   className="underline hover:no-underline"
                   target="_blank"
                 >
                   X
-                </a>
+                </Link>
                 、
-                <a
+                <Link
                   href="mailto:takaws@gmail.com"
                   className="underline hover:no-underline"
                   target="_blank"
                 >
                   メール
-                </a>
+                </Link>
                 からお願いします。
               </p>
               <ContactForm />
