@@ -30,23 +30,17 @@ export default function About() {
               <h2 className="font-bold text-lg">目次</h2>
               <ul className="mt-4 grid gap-4 font-bold text-base">
                 <li>
-                  <a href="#001" className="flex items-center">
-                    <span className="mr-2 text-gray-200 scale-75">●</span>略歴
-                  </a>
-                </li>
-                {/* <li>
-                  <a href="#002" className="flex items-center">
-                    <span className="mr-2 text-gray-200 scale-75">●</span>経歴
-                  </a>
-                </li> */}
-                <li>
-                  <a href="#003" className="flex items-center">
-                    <span className="mr-2 text-gray-200 scale-75">●</span>
-                    業務経歴
+                  <a href="#blog" className="flex items-center">
+                    <span className="mr-2 text-gray-200 scale-75">●</span>当ブログについて
                   </a>
                 </li>
                 <li>
-                  <a href="#004" className="flex items-center">
+                  <a href="#author" className="flex items-center">
+                    <span className="mr-2 text-gray-200 scale-75">●</span>著者について
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="flex items-center">
                     <span className="mr-2 text-gray-200 scale-75">●</span>
                     お問い合わせ
                   </a>
@@ -56,28 +50,52 @@ export default function About() {
           </div>
           <div className="col-start-1 my-12">
             <div className="p-4 lg:p-8 py-8 lg:py-16 rounded-md [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 bg-white dark:text-white dark:bg-[#292D30]">
-              <section>
+            <section className="markdown-body">
                 <h2
-                  id="001"
+                  id="blog"
                   className="text-2xl font-semibold mb-4 border-b pb-3"
                 >
-                  略歴
+                  当ブログについて
                 </h2>
-                <p className="text-base leading-relaxed mb-4">
-                  2024年1月から都内Web制作会社でコーダーとして勤務
-                  <br />
-                  Webアクセシビリティとモダンフロントエンド技術によるサイト制作に強い関心がある
-                  <br />
-                  <Link href="/blog/ch91jpvx2" className="underline hover:no-underline">2025年5月にDHS Trusted Tester Certificationを取得</Link>
-                  <br />
-                  東京都墨田区在住
-                  <br />
-                  1986年生まれ
-                  <br />
-                  早稲田大学政治経済学部経済学科卒業
-                  <br />
-                  ラジオ お笑い HIPHOP カレー ビールを好んでいる
-                </p>
+                <ul className="pl-2">
+                  <li>
+                    <p>アクセシビリティ、フロントエンドに関する技術が中心のブログ</p>
+                  </li>
+                  <li>
+                    <p>自身の知識を整理することが目的</p>
+                  </li>
+                </ul>
+              </section>
+              <section className="markdown-body mt-8">
+                <h2
+                  id="author"
+                  className="text-2xl font-semibold mb-4 border-b pb-3"
+                >
+                  著者について
+                </h2>
+                <ul className="pl-2">
+                  <li>
+                    <p>2024年1月から都内Web制作会社でコーダーとして勤務</p>
+                  </li>
+                  <li>
+                    <p>Webアクセシビリティに強い関心がある</p>
+                  </li>
+                  <li>
+                    <p>2025年5月に<Link href="/blog/ch91jpvx2" className="underline hover:no-underline">DHS Trusted Tester Certificationを取得</Link></p>
+                  </li>
+                  <li>
+                    <p>東京都墨田区在住</p>
+                  </li>
+                  <li>
+                    <p>1986年生まれ</p>
+                  </li>
+                  <li>
+                    <p>早稲田大学政治経済学部経済学科卒業</p>
+                  </li>
+                  <li>
+                    <p>ラジオ、お笑い、HIPHOP、カレー、ビールを好んでいる</p>
+                  </li>
+                </ul>
               </section>
               {/* <section>
                 <h2
@@ -127,7 +145,7 @@ export default function About() {
                   半年間Web制作方面の独学をした後、都内のWeb制作会社にコーダーとして転職
                 </p>
               </section> */}
-              <section>
+              {/* <section>
                 <h2
                   id="003"
                   className="text-2xl font-semibold mt-8 mb-4 border-b pb-3"
@@ -179,7 +197,7 @@ export default function About() {
                 <p className="mt-4">
                   既存のコーポレートサイトのIRサイトのみのリニューアル。
                 </p>
-                {/* <h3 className="mt-6 mb-3 font-bold">
+                <h3 className="mt-6 mb-3 font-bold">
                   ディスクロージャー支援サービスの設置作業
                 </h3>
                 <dl className="mb-4 space-y-2">
@@ -200,8 +218,8 @@ export default function About() {
                   適時開示情報を管理するCMSから出力する情報を既存サイトに設置する
                   <br />
                   CMSが出力するXMLをパースし、既存のサイトのレイアウトに沿った構造で表示する
-                </p> */}
-              </section>
+                </p>
+              </section> */}
             </div>
           </div>
         </article>
@@ -209,7 +227,7 @@ export default function About() {
           <section className="col-start-1">
             <div className="p-4 lg:p-8 py-8 lg:py-16 lg:pt-4 rounded-md [&_h1]:scroll-mt-16 [&_h2]:scroll-mt-16 [&_h3]:scroll-mt-16 bg-white dark:text-white dark:bg-[#292D30]">
               <h2
-                id="004"
+                id="contact"
                 className="text-2xl font-semibold mt-8 mb-8 border-b pb-3"
               >
                 お問い合わせ
